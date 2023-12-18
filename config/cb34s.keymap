@@ -6,11 +6,10 @@
 
 #include <behaviors.dtsi>
 #include "keymap_eurkey_swiss_de.h"
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 / {
-     combos {
+    combos {
         compatible = "zmk,combos";
 
         left_bkt {
@@ -59,8 +58,8 @@
             key-positions = <14 15>;
         };
     };
-     behaviors {
 
+    behaviors {
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
@@ -73,6 +72,7 @@
             quick-tap-ms = <180>;
             global-quick-tap;
         };
+
         ltq: ltq {
             compatible = "zmk,behavior-hold-tap";
             label = "LTQ";
@@ -91,12 +91,47 @@
         default_layer {
             label = "Base";
             bindings = <
-&mt DEL Q  &kp W  &kp E  &kp R      &kp T      &kp Y       &kp U     &kp I      &kp O    &kp P
-&kp A      &kp S  &kp D  &kp F      &kp G      &kp H       &kp J     &kp K      &kp L    &kp BACKSPACE
-&kp Z      &kp X  &kp C  &kp V      &kp B      &kp N       &kp M     &kp COMMA  &kp DOT  &mo 3
-                         &kp LCTRL  &kp SPACE  &kp RSHIFT  &kp RALT
+&kp Q           &kp W           &kp E        &kp R             &kp T        &kp Y    &kp U              &kp I        &kp O            &kp P
+&hm LEFT_WIN A  &hm LEFT_ALT S  &hm LCTRL D  &hm LEFT_SHIFT F  &kp G        &kp H    &hm RIGHT_SHIFT J  &hm RCTRL K  &hm RIGHT_ALT L  &hm RIGHT_WIN SEMI
+&kp Z           &kp X           &kp C        &kp V             &kp B        &kp N    &kp M              &kp COMMA    &kp DOT          &kp FSLH
+                                             &lt 1 SPACE       &lt 2 ENTER  &kp TAB  &ltq 2 BACKSPACE
             >;
         };
 
+        layer_1 {
+            bindings = <
+&kp N1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5   &kp NUMBER_6  &kp N7           &kp N8     &kp N9  &kp N0
+&trans  &trans        &trans        &trans        &kp F12  &kp MINUS     &kp EQUAL        &kp GRAVE  &trans  &kp SQT
+&trans  &trans        &trans        &trans        &trans   &trans        &trans           &trans     &trans  &trans
+                                    &trans        &trans   &trans        &kp RIGHT_SHIFT
+            >;
+        };
+
+        layer_2 {
+            bindings = <
+&kp ESC   &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_NUMBER_0  &trans  &trans    &kp UP_ARROW    &trans     &trans
+&kp CAPS  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp DOT          &trans  &kp LEFT  &kp DOWN_ARROW  &kp RIGHT  &trans
+&kp DEL   &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp AT_SIGN      &trans  &trans    &trans          &trans     &trans
+                                            &trans           &trans           &trans  &trans
+            >;
+        };
+
+        layer_3 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans  &trans
+            >;
+        };
+
+        layer_4 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans  &trans
+            >;
+        };
     };
 };
